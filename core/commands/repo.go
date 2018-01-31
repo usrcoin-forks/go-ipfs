@@ -15,7 +15,6 @@ import (
 	corerepo "github.com/ipfs/go-ipfs/core/corerepo"
 	config "github.com/ipfs/go-ipfs/repo/config"
 	fsrepo "github.com/ipfs/go-ipfs/repo/fsrepo"
-	lockfile "github.com/ipfs/go-ipfs/repo/fsrepo/lock"
 
 	bstore "gx/ipfs/QmTVDM4LCSUMFNQzbDLL9zQwp8usE6QHymFdh3h8vL9v6b/go-ipfs-blockstore"
 	cmds "gx/ipfs/QmZ9hww8R3FKrDRCYPxhN13m6XgjPDpaSvdUfisPvERzXz/go-ipfs-cmds"
@@ -233,7 +232,7 @@ daemons are running.
 		}
 
 		dsLockFile := filepath.Join(dsPath, "LOCK") // TODO: get this lockfile programmatically
-		repoLockFile := filepath.Join(configRoot, lockfile.LockFile)
+		repoLockFile := filepath.Join(configRoot, fsrepo.LockFile)
 		apiFile := filepath.Join(configRoot, "api") // TODO: get this programmatically
 
 		log.Infof("Removing repo lockfile: %s", repoLockFile)

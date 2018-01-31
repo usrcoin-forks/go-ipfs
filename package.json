@@ -575,6 +575,12 @@
       "hash": "QmdbxjQWogRCHRaxhhGnYdT1oQJzL9GdqSKzCdqWr85AP2",
       "name": "pubsub",
       "version": "1.0.0"
+    },
+    {
+      "author": "dignifiedquire",
+      "hash": "QmTAQSKWDGV7MpNGZrcj9gzbBLk3vG77EcBkCQtPphCknP",
+      "name": "go-fs-lock",
+      "version": "0.1.0"
     }
   ],
   "gxVersion": "0.10.0",
@@ -583,4 +589,3 @@
   "name": "go-ipfs",
   "version": "0.4.14-dev"
 }
-
