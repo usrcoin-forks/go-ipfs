@@ -82,13 +82,20 @@ func TestRepublish(t *testing.T) {
 	repub.Interval = time.Second
 	repub.RecordLifetime = time.Second * 5
 
+	// Publish in a way that would normally expire
+	err = rp.PublishWithEOL(ctx, publisher.PrivateKey, p, time.Now().Add(200*time.Millisecond))
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	proc := goprocess.Go(repub.Run)
 	defer proc.Close()
 
-	// now wait a couple seconds for it to fire
+	// now wait a couple seconds
 	time.Sleep(time.Second * 2)
 
-	// we should be able to resolve them now
+	// we should be able to resolve them now because the republisher has
+	// kept the record live.
 	if err := verifyResolution(nodes, name, p); err != nil {
 		t.Fatal(err)
 	}
